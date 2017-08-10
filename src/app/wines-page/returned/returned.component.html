@@ -1,0 +1,41 @@
+<div class="ui-widget-header" style="padding:8px 10px;border-bottom: 0 none; overflow: hidden">
+    <span class="searchSpan"> Search by wine code</span>     
+    <input  type="text" pInputText size="50" placeholder="Search" style="margin-left: 8px" class="searchInput">
+    <button type="button" class="btn btn-info" style = "float: right;">Export Data</button>
+</div>
+<p-dataTable [value]="wines">
+    <p-column field="wineId" header="Wine ID"></p-column>
+    <p-column field="label" header="Label"></p-column>
+    <p-column field="vinary" header="vinary"></p-column>
+    <p-column field="year" header="year"></p-column>
+    <p-column field="sweetness" header="sweetness"></p-column>
+    <p-column field="category" header="category"></p-column>
+    <p-column field="countryRegion" header="country/region"></p-column>
+    <p-column field="bottlesAmount" header="bottles amount"></p-column>
+    <p-column field="dateOfReturn" header="date of return"></p-column>
+    <p-column field="manage" header="">
+        <ng-template  pTemplate="body">
+            <button type="button" class="btn btn-info" (click)="openModal(template)">Manage Status</button>
+        </ng-template>
+    </p-column>
+</p-dataTable>
+
+<template #template>
+  <div class="modal-body">
+ <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">Bottles amount</span>
+  <input type="text" class="form-control" aria-describedby="basic-addon1">
+</div>
+
+    <div class="input-group" style="margin-top: 3%">
+  <span class="input-group-addon" id="basic-addon1">Status</span>
+  <p-dropdown [options]="status" [(ngModel)]="selectedCity" ></p-dropdown>
+</div>
+
+    <div class="container-fluid" style="text-align: center; margin-top: 2%;">    
+          <button type="button" class="btn btn-info" (click)="modalRef.hide()" style="margin-right: 5%;">Cancel</button>
+          <button type="button" class="btn btn-info" (click)="modalRef.hide()" style="margin-left: 5%;">Save changes</button>
+    </div>
+
+  </div>
+</template>

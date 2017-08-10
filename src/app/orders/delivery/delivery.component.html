@@ -1,0 +1,16 @@
+<div class="ui-widget-header" style="padding:8px 10px;border-bottom: 0 none; overflow: hidden">  
+    <button type="button" class="btn btn-info" style = "float: right;">Export Data</button>
+</div>
+<p-dataTable [value]="orders">
+    <p-column field="orderId" header="Order ID"></p-column>
+    <p-column field="date" header="Date"></p-column>
+    <p-column field="time" header="Time"></p-column>
+    <p-column field="restName" header="Restaraunt Name"></p-column>
+    <p-column field="bottlesAmount" header="Bottles Amount"></p-column>
+    <p-column field="status" header="Status"></p-column>
+    <p-column field="confirm" header="">
+        <ng-template  pTemplate="body">
+            <button type="button" class="btn btn-info">Confirm</button>
+        </ng-template>
+    </p-column>
+</p-dataTable>
